@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import FirebaseAuth
 class LoginViewController: UIViewController {
     
     private let scrollView: UIScrollView = {
@@ -123,6 +123,20 @@ class LoginViewController: UIViewController {
                   alertUserLoginError()
                   return
               }
+        
+        FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password, completion: {[weak self ] authResults , error in
+            guard let strongSelf = self else {
+                return
+            }
+            guard let results = authResults , error == nil else {
+            print("Failed to login \(email)")
+                return
+            }
+            let user = results.user
+            print("Logged In \(user)")
+            strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+            
+        })
     }
     func alertUserLoginError(){
         let alert = UIAlertController(title: "Woops", message: "Pls enter all info to login", preferredStyle: .alert)
@@ -132,7 +146,7 @@ class LoginViewController: UIViewController {
     @objc private func didTapRegister() {
         
         let vc = RegisterViewController()
-        vc.title = "Crete Account "
+        vc.title = "Create Account "
         navigationController?.pushViewController(vc, animated: true)
     }
 }
