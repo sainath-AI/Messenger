@@ -25,5 +25,25 @@
 	<string>please alllow access to a take a picture  </string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>please allow access to select a pic proflie</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb227108629556673</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>227108629556673</string>
+	<key>FacebookClientToken</key>
+	<string>8b73e9662db935e9d59f8841a83185f5</string>
+	<key>FacebookDisplayName</key>
+	<string>MyChatApp</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fb227108629556673</string>
+		<string>fb227108629556673</string>
+	</array>
 </dict>
 </plist>

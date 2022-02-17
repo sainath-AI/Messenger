@@ -196,7 +196,7 @@ class RegisterViewController: UIViewController {
             }
             guard !exists  else {
                 // user already exists
-                strongSelf.alertUserLoginError(message: "email already exits ")
+                strongSelf.alertUserLoginError(message: "email already exits")
                 return
             }
             FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { authResults , error  in
@@ -221,7 +221,9 @@ class RegisterViewController: UIViewController {
     func alertUserLoginError(message: String = "please enter all info to register"){
         let alert = UIAlertController(title: "Woops", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
-        present(alert, animated: true)    }
+        present(alert, animated: true)
+        
+    }
     
     @objc private func didTapRegister() {
         
